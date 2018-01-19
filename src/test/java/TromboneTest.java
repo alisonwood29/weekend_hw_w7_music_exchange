@@ -53,4 +53,9 @@ public class TromboneTest {
     public void canPlay(){
         assertEquals("Sliding up and down", trombone.play());
     }
+
+    @Test
+    public void canCalculateMarkUp(){
+        assertEquals(6.95, trombone.calculateMarkUp(), 0.1);
+    }
 }

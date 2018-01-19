@@ -1,6 +1,8 @@
 package Instruments;
 
-public abstract class Instrument implements IPlayable{
+import MusicShop.ISellable;
+
+public abstract class Instrument implements IPlayable, ISellable{
 
     private Type type;
     private String model;
@@ -41,5 +43,9 @@ public abstract class Instrument implements IPlayable{
 
     public double getSellPrice() {
         return this.sellPrice;
+    }
+
+    public double calculateMarkUp(){
+        return this.sellPrice - this.buyPrice;
     }
 }
