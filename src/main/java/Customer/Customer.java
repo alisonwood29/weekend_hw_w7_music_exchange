@@ -1,6 +1,9 @@
 package Customer;
 
+import Instruments.Guitar;
+import Instruments.IPlayable;
 import Instruments.Instrument;
+import Instruments.Type;
 import MusicShop.ISellable;
 
 import java.util.ArrayList;
@@ -37,6 +40,14 @@ public class Customer {
     }
 
     public String play(Instrument instrument) {
+        ISellable guitar = new Guitar(Type.WOODWIND, "", "", "", 9.99, 9.99, 8);
+        if (guitar instanceof Instrument) {
+
+            Instrument instr = (Instrument) guitar;
+            play(instr);
+        }
+
         return instrument.play();
     }
+
 }
