@@ -1,5 +1,6 @@
 package Customer;
 
+import Instruments.Instrument;
 import MusicShop.ISellable;
 
 import java.util.ArrayList;
@@ -16,4 +17,26 @@ public class Customer {
         this.shoppingBag = new ArrayList<>();
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public double getWallet() {
+        return this.wallet;
+    }
+
+    public int shoppingBagCount() {
+        return this.shoppingBag.size();
+    }
+
+    public void addToShoppingBag(ISellable item) {
+        if(getWallet() >= item.getSellPrice()) {
+            this.shoppingBag.add(item);
+            this.wallet -= item.getSellPrice();
+        }
+    }
+
+    public String play(Instrument instrument) {
+        return instrument.play();
+    }
 }
