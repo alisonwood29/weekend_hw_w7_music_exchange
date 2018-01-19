@@ -13,4 +13,24 @@ public class Reeds {
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
     }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public int getNumberInBox() {
+        return this.numberInBox;
+    }
+
+    public double getBuyPrice() {
+        return this.buyPrice;
+    }
+
+    public double getSellPrice() {
+        return this.sellPrice;
+    }
+
+    public double calculateMarkUp() {
+        return this.sellPrice - this.buyPrice;
+    }
 }
