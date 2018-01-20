@@ -5,6 +5,7 @@ import Instruments.IPlayable;
 import Instruments.Instrument;
 import Instruments.Type;
 import MusicShop.ISellable;
+import MusicShop.MusicShop;
 
 import java.util.ArrayList;
 
@@ -40,14 +41,18 @@ public class Customer {
     }
 
     public String play(Instrument instrument) {
-        ISellable guitar = new Guitar(Type.WOODWIND, "", "", "", 9.99, 9.99, 8);
-        if (guitar instanceof Instrument) {
-
-            Instrument instr = (Instrument) guitar;
-            play(instr);
-        }
-
         return instrument.play();
     }
 
+
+    public ArrayList<String> playBoughtInstruments() {
+        ArrayList<String> instruments = new ArrayList<>();
+        for(ISellable item: shoppingBag) {
+            if (item instanceof Instrument) {
+                Instrument instrument = (Instrument) item;
+                instruments.add(play(instrument));
+            }
+        }
+        return instruments;
+    }
 }

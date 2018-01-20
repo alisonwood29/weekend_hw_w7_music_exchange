@@ -36,6 +36,12 @@ public class MusicShop {
         this.budget += item.getSellPrice();
     }
 
+//    public ISellable removeStock() {
+//        ISellable item = this.stock.remove(0);
+//        this.budget += item.getSellPrice();
+//        return item;
+//    }
+
     public double potentialProfit() {
         double profit = 0;
         for(ISellable item: this.stock){
