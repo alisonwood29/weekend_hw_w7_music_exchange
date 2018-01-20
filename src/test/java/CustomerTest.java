@@ -68,5 +68,16 @@ public class CustomerTest {
         assertEquals(expected, customer.playBoughtInstruments());
     }
 
+    @Test
+    public void canPlayInstrumentIfInShoppingBag(){
+        customer.addToShoppingBag(guitar);
+        assertEquals("Strumming away", customer.playBoughtInstrument(guitar));
+    }
+
+    @Test
+    public void cantPlayInstrumentIfNotInShoppingBag(){
+        assertEquals("You do not own this instrument", customer.playBoughtInstrument(saxophone));
+    }
+
 
 }

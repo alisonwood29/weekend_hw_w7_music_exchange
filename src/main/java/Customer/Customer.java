@@ -34,11 +34,13 @@ public class Customer {
     }
 
     public void addToShoppingBag(ISellable item) {
+//        MusicShop.removeStock(item);
         if(getWallet() >= item.getSellPrice()) {
             this.shoppingBag.add(item);
             this.wallet -= item.getSellPrice();
         }
     }
+//    In this method i was trying to use the item removed from stock array in music shop but get error.
 
     public String play(Instrument instrument) {
         return instrument.play();
@@ -54,5 +56,14 @@ public class Customer {
             }
         }
         return instruments;
+    }
+
+    public String playBoughtInstrument(Instrument instrument) {
+        if(shoppingBag.contains(instrument)) {
+           return play(instrument);
+        }
+        else{
+            return "You do not own this instrument";
+        }
     }
 }
